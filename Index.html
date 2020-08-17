@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Function Use Example</title>
+</head>
+
+<body>
+
+    <div class="welcome">
+        <h1>Rock Paper Scissors Game</h1>
+        <div class="container">
+            <h3><p id="youSelected"></p></h3>
+            <form>
+                    <button id="btn1" type="button" value="Rock">Rock</button>
+                    <button id="btn2" type="button" value="Paper">Paper</button>
+                    <button id="btn3" type="button" value="Scissors">Scissors</button>
+            </form>
+        </div>
+
+        <div>
+            <h3><p id="computerSelected"></p></h3>
+        </div>
+        <p id="computerSelected"></p>
+        <p id="youSelected"></p>
+    </div>
+    <p id="logThis">Rock? Paper? Scissors?</p>
+    <p id="scoreboard"></p>
+    <style>
+        html {
+            box-sizing: border-box;
+            width: auto;
+            padding: 100px;
+        }
+
+        h1 {
+            font-family: cursive;
+            font-size: x-large;
+            color: forestgreen;
+        }
+
+
+        .welcome {
+            background-position: center;
+            text-align: center;
+        }
+
+        .container {
+            background-position: center;
+            text-align: center;
+        }
+
+        body {
+            background-color: lightblue;
+            border: 3px solid blanchedalmond;
+            width: max-content center;
+        }
+
+        p {
+            background-position: center;
+            text-align: center;
+            border: 10px;
+            width: auto center;
+        }
+    </style>
+</body>
+
+<script>
+    let playerSelection;
+    let computerSelection;
+    let playerScore = 0;
+    let computerScore = 0;
+    scoreboard.textContent = "playerScore is " + playerScore + "\ncomputerScore is " + computerScore;
+
+
+    let choices = new Array();
+    choices[0] = "rock";
+    choices[1] = "paper";
+    choices[2] = "scissors";
+
+
+    function computer() {
+        var random = Math.floor(Math.random() * choices.length);
+        computerSelection = choices[random];
+        computerSelected.textContent = "Computer selection: " + choices[random];
+    }
+
+    const btn1 = document.querySelector('#btn1');
+    btn1.addEventListener('click', () => {rockRound()});
+
+    const btn2 = document.querySelector('#btn2');
+    btn2.addEventListener('click', () => {paperRound()});
+
+    const btn3 = document.querySelector('#btn3');
+    btn3.addEventListener('click', () => {scissorsRound()});
+
+    function rockRound() {
+        playerSelection = choices[0];
+        youSelected.textContent = "You selected: "+ playerSelection;
+        //btn1.onclick = playerSelection;
+        computer();
+        playRound(playerSelection, computerSelection);
+    }
+
+    function paperRound() {
+        playerSelection = choices[1];
+        youSelected.textContent = "You selected: "+ playerSelection;
+        //btn2.onclick = playerSelection;
+        computer();
+        playRound(playerSelection, computerSelection);
+    }
+
+    function scissorsRound() {
+        playerSelection = choices[2];
+        youSelected.textContent = "You selected: "+ playerSelection;
+        //btn3.onclick = playerSelection;
+        computer();
+        playRound(playerSelection, computerSelection);
+    }
+
+
+    function playRound(playerSelection, computerSelection) {
+
+        if (playerSelection === computerSelection) {
+            logThis.textContent = "tied!";
+        }
+        else if (playerSelection != computerSelection) {
+            if ((playerSelection == choices[1]) && (computerSelection == choices[0]))
+            //paper beats rock
+            {
+                logThis.textContent = "paper beats rock";
+                playerScore += 1;
+            }
+            if ((playerSelection == choices[0]) && (computerSelection == choices[2]))
+            //rock beats scissors
+            {
+                logThis.textContent = "rock beats scissors";
+                playerScore += 1;
+            }
+            if ((playerSelection == choices[2]) && (computerSelection == choices[1]))
+            //scissors beats paper
+            {
+                logThis.textContent = "rock beats scissors";
+                playerScore += 1;
+            }
+            if ((playerSelection == choices[0]) && (computerSelection == choices[1]))
+            //rock loses to paper
+            {
+                logThis.textContent = "rock loses to paper";
+                computerScore += 1;
+            }
+            if ((playerSelection == choices[2]) && (computerSelection == choices[0]))
+            //scissors loses to rock
+            {
+                logThis.textContent = "scissors loses to rock";
+                computerScore += 1;
+            }
+            if ((playerSelection == choices[1]) && (computerSelection == choices[2]))
+            //paper loses to scissors
+            {
+                logThis.textContent = "paper loses to scissors";
+                computerScore += 1;
+            }
+        }
+        else {
+            logThis.textContent = "no valid option";
+        }
+        scoreboard.textContent = "playerScore is " + playerScore + "\ncomputerScore is " + computerScore;
+    }
+
+</script>
+
+</html>
