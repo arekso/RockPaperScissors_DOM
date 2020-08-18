@@ -11,16 +11,21 @@
     <div class="welcome">
         <h1>Rock Paper Scissors Game</h1>
         <div class="container">
-            <h3><p id="youSelected"></p></h3>
+            
             <form>
-                    <button id="btn1" type="button" value="Rock">Rock</button>
-                    <button id="btn2" type="button" value="Paper">Paper</button>
-                    <button id="btn3" type="button" value="Scissors">Scissors</button>
+                <button id="btn1" type="button" value="Rock">Rock</button>
+                <button id="btn2" type="button" value="Paper">Paper</button>
+                <button id="btn3" type="button" value="Scissors">Scissors</button>
             </form>
+            <h3>
+                <p id="youSelected"></p>
+            </h3>
         </div>
-
+                <p id="youWin"></p>
         <div>
-            <h3><p id="computerSelected"></p></h3>
+            <h3>
+                <p id="computerSelected"></p>
+            </h3>
         </div>
         <p id="computerSelected"></p>
         <p id="youSelected"></p>
@@ -72,8 +77,8 @@
     let computerSelection;
     let playerScore = 0;
     let computerScore = 0;
-    
-    yourScore.textContent     = "Your Score: " + playerScore;
+
+    yourScore.textContent = "Your Score: " + playerScore;
     compScore.textContent = "Computer Score: " + computerScore;
 
 
@@ -90,43 +95,48 @@
     }
 
     const btn1 = document.querySelector('#btn1');
-    btn1.addEventListener('click', () => {rockRound()});
+    btn1.addEventListener('click', () => { rockRound() });
 
     const btn2 = document.querySelector('#btn2');
-    btn2.addEventListener('click', () => {paperRound()});
+    btn2.addEventListener('click', () => { paperRound() });
 
     const btn3 = document.querySelector('#btn3');
-    btn3.addEventListener('click', () => {scissorsRound()});
+    btn3.addEventListener('click', () => { scissorsRound() });
+
+    
 
     function rockRound() {
         playerSelection = choices[0];
-        youSelected.textContent = "You selected: "+ playerSelection;
+        youSelected.textContent = "You selected: " + playerSelection;
         //btn1.onclick = playerSelection;
         computer();
         playRound(playerSelection, computerSelection);
+        
     }
 
     function paperRound() {
         playerSelection = choices[1];
-        youSelected.textContent = "You selected: "+ playerSelection;
+        youSelected.textContent = "You selected: " + playerSelection;
         //btn2.onclick = playerSelection;
         computer();
         playRound(playerSelection, computerSelection);
+        
     }
 
     function scissorsRound() {
         playerSelection = choices[2];
-        youSelected.textContent = "You selected: "+ playerSelection;
+        youSelected.textContent = "You selected: " + playerSelection;
         //btn3.onclick = playerSelection;
         computer();
         playRound(playerSelection, computerSelection);
+        
     }
 
 
     function playRound(playerSelection, computerSelection) {
 
         if (playerSelection === computerSelection) {
-            logThis.textContent = "tied!";
+            logThis.textContent = "tied";
         }
         else if (playerSelection != computerSelection) {
             if ((playerSelection == choices[1]) && (computerSelection == choices[0]))
@@ -172,6 +182,20 @@
 
         yourScore.textContent = "Your Score: " + playerScore;
         compScore.textContent = "Computer Score: " + computerScore;
+        win();
+    }
+
+    function win() 
+    {
+        if (playerScore == 5) {
+            youWin.textContent = "YOU WIN!! :) \nPlease reload page to continue.";
+        }
+        else if (computerScore == 5) {
+            youWin.textContent = "Computer wins :( \nPlease reload page to try again.";
+        }
+        else {
+            youWin.textContent = "Winning score is 5. Next round";
+        }
     }
 
 </script>
