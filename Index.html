@@ -26,7 +26,8 @@
         <p id="youSelected"></p>
     </div>
     <p id="logThis">Rock? Paper? Scissors?</p>
-    <p id="scoreboard"></p>
+    <p id="yourScore">Your Score</p>
+    <p id="compScore">Computer Score</p>
     <style>
         html {
             box-sizing: border-box;
@@ -71,7 +72,9 @@
     let computerSelection;
     let playerScore = 0;
     let computerScore = 0;
-    scoreboard.textContent = "playerScore is " + playerScore + "\ncomputerScore is " + computerScore;
+    
+    yourScore.textContent     = "Your Score: " + playerScore;
+    compScore.textContent = "Computer Score: " + computerScore;
 
 
     let choices = new Array();
@@ -166,7 +169,9 @@
         else {
             logThis.textContent = "no valid option";
         }
-        scoreboard.textContent = "playerScore is " + playerScore + "\ncomputerScore is " + computerScore;
+
+        yourScore.textContent = "Your Score: " + playerScore;
+        compScore.textContent = "Computer Score: " + computerScore;
     }
 
 </script>
