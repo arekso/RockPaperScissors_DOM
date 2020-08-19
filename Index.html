@@ -11,7 +11,7 @@
     <div class="welcome">
         <h1>Rock Paper Scissors Game</h1>
         <div class="container">
-            
+
             <form>
                 <button id="btn1" type="button" value="Rock">Rock</button>
                 <button id="btn2" type="button" value="Paper">Paper</button>
@@ -21,22 +21,24 @@
                 <p id="youSelected"></p>
             </h3>
         </div>
-                <p id="youWin"></p>
-        <div>
-            <h3>
-                <p id="computerSelected"></p>
-            </h3>
+        <p id="youWin"></p>
+        <div class="container2">
+            <div>
+                <h3>
+                    <p id="computerSelected"></p>
+                </h3>
+            </div>
+            <p id="computerSelected"></p>
+            <p id="youSelected"></p>
         </div>
-        <p id="computerSelected"></p>
-        <p id="youSelected"></p>
+        <p id="logThis">Rock? Paper? Scissors?</p>
+        <p id="yourScore">Your Score</p>
+        <p id="compScore">Computer Score</p>
     </div>
-    <p id="logThis">Rock? Paper? Scissors?</p>
-    <p id="yourScore">Your Score</p>
-    <p id="compScore">Computer Score</p>
     <style>
         html {
             box-sizing: border-box;
-            width: auto;
+            width: fit-content;
             padding: 100px;
         }
 
@@ -44,30 +46,49 @@
             font-family: cursive;
             font-size: x-large;
             color: forestgreen;
+            box-sizing: border-box;
         }
 
 
         .welcome {
             background-position: center;
             text-align: center;
+            background-color: rgb(255, 255, 255);
+            box-sizing: border-box;
+            width: auto;
+            height: auto;
         }
 
         .container {
             background-position: center;
             text-align: center;
+            box-sizing: border-box;
+        }
+
+        .container2{
+            background-position: center;
+            text-align: center;
+            box-sizing: border-box;
+            width: auto;
+            height: auto;
         }
 
         body {
-            background-color: lightblue;
-            border: 3px solid blanchedalmond;
-            width: max-content center;
+            opacity: 0.9;
+            background: url(https://images.pexels.com/photos/2836955/pexels-photo-2836955.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-sizing: border-box;
+            border: 5px solid blanchedalmond;
+            width: auto;
+            height: auto;
         }
 
         p {
             background-position: center;
             text-align: center;
-            border: 10px;
-            width: auto center;
+            background-color: rgb(255, 255, 255);
+            box-sizing: border-box;
         }
     </style>
 </body>
@@ -103,7 +124,7 @@
     const btn3 = document.querySelector('#btn3');
     btn3.addEventListener('click', () => { scissorsRound() });
 
-    
+
 
     function rockRound() {
         playerSelection = choices[0];
@@ -111,7 +132,7 @@
         //btn1.onclick = playerSelection;
         computer();
         playRound(playerSelection, computerSelection);
-        
+
     }
 
     function paperRound() {
@@ -120,7 +141,7 @@
         //btn2.onclick = playerSelection;
         computer();
         playRound(playerSelection, computerSelection);
-        
+
     }
 
     function scissorsRound() {
@@ -129,7 +150,7 @@
         //btn3.onclick = playerSelection;
         computer();
         playRound(playerSelection, computerSelection);
-        
+
     }
 
 
@@ -185,8 +206,7 @@
         win();
     }
 
-    function win() 
-    {
+    function win() {
         if (playerScore == 5) {
             youWin.textContent = "YOU WIN!! :) \nPlease reload page to continue.";
         }
