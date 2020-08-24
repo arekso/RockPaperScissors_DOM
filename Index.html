@@ -8,9 +8,9 @@
 
 <body>
 
-    <div class="welcome">
+    <div id="welcome">
         <h1>Rock Paper Scissors Game</h1>
-        <div class="container">
+        <div id="container">
 
             <form>
                 <button id="btn1" type="button" value="Rock">Rock</button>
@@ -22,7 +22,7 @@
             </h3>
         </div>
         <p id="youWin"></p>
-        <div class="container2">
+        <div id="container2">
             <div>
                 <h3>
                     <p id="computerSelected"></p>
@@ -39,56 +39,51 @@
         html {
             box-sizing: border-box;
             width: fit-content;
-            padding: 100px;
+            padding: 50px;
         }
 
         h1 {
             font-family: cursive;
             font-size: x-large;
             color: forestgreen;
-            box-sizing: border-box;
         }
 
 
-        .welcome {
+        #welcome {
             background-position: center;
             text-align: center;
             background-color: rgb(255, 255, 255);
-            box-sizing: border-box;
-            width: auto;
-            height: auto;
+            width:  400px ;
+            height: 350px;
+            margin: 0 auto;
+            border: 5px solid blanchedalmond;
         }
 
-        .container {
+        #container {
             background-position: center;
             text-align: center;
-            box-sizing: border-box;
+            
         }
 
-        .container2{
+        #container2{
             background-position: center;
             text-align: center;
-            box-sizing: border-box;
             width: auto;
             height: auto;
+            
         }
 
         body {
             opacity: 0.9;
-            background: url(https://images.pexels.com/photos/2836955/pexels-photo-2836955.jpeg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            box-sizing: border-box;
-            border: 5px solid blanchedalmond;
-            width: auto;
-            height: auto;
+            /*background-image: linear-gradient(rgb(255, 255, 255),rgb(113, 207, 6)); */
+            background: url(https://images.pexels.com/photos/2836955/pexels-photo-2836955.jpeg); 
+            background-size:cover;
         }
 
         p {
             background-position: center;
             text-align: center;
             background-color: rgb(255, 255, 255);
-            box-sizing: border-box;
         }
     </style>
 </body>
